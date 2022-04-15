@@ -1,0 +1,78 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+body > div:first-child,
+div#__next,
+div#__next > div {
+  height: 100%;
+}
+
+.simple-keyboard {
+  max-width: 850px;
+}
+
+
+.simple-keyboard.dark-keyboard {
+  background-color: transparent;
+  border-radius: 0;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.simple-keyboard.dark-keyboard .hg-button {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.simple-keyboard.dark-keyboard .hg-button:active, .simple-keyboard.dark-keyboard .hg-activeButton {
+  background: rgb(0 0 0 / 70%);;
+  color: white;
+}
+
+.untouched {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.correct-character{
+  border: 2px solid #ffff45;
+}
+
+.correct {
+  border: 2px solid #64ae64;
+}
+
+.invalid {
+  border: 2px solid #e24c4c;
+}
+
+.simple-keyboard.dark-keyboard .hg-button[disabled="true"] {
+  pointer-events: none;
+  background-color: rgb(255 255 255 / 25%);
+}
