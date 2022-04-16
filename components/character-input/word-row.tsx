@@ -1,5 +1,5 @@
 import produce from "immer";
-import { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { CharacterInputBox, CharacterInputType } from "./character-box"
 import { useRecoilValue, useResetRecoilState } from "recoil";
 import hotkeys from 'hotkeys-js';
@@ -29,7 +29,7 @@ export const WordRow = ({ length, onComplete, correctWord }: WordRowProps) => {
     const filterLetters = useRecoilValue(bannedKeys);
     const filterReset = useResetRecoilState(keyboardState);
     const controlKeys = ['Backspace', 'Enter'];
-    const ref = useRef<HTMLElement>(null);
+    const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (ref.current) {
