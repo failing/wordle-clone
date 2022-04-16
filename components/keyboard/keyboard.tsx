@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { keyboardState } from "pages/store";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import { useRecoilState, useResetRecoilState } from "recoil";
+import { keyboardState } from "store";
 
 export const GameKeyboard = () => {
     const filterReset = useResetRecoilState(keyboardState);

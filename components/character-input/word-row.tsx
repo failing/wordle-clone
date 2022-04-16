@@ -4,7 +4,7 @@ import { CharacterInputBox, CharacterInputType } from "./character-box"
 import { useRecoilValue, useResetRecoilState } from "recoil";
 import hotkeys from 'hotkeys-js';
 import styles from './../../styles/wordrow.module.css';
-import { bannedKeys, keyboardState, lastPressedKey } from "pages/store";
+import { lastPressedKey, bannedKeys, keyboardState } from "store";
 
 interface CharacterState {
     letter: string,

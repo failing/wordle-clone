@@ -2,7 +2,7 @@ import { useCallback, useState } from "react"
 import { WordRow } from "./word-row"
 import { Grid } from "@chakra-ui/react";
 import { useRecoilState } from "recoil";
-import { keyboardState } from "pages/store";
+import { keyboardState } from "store";
 
 type WordStackProps = {
     maxTries: number;
