@@ -5,8 +5,7 @@ import { Text } from '@chakra-ui/react';
 import { GameKeyboard } from 'components/keyboard/keyboard'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-;
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 const Home: NextPage = () => {
