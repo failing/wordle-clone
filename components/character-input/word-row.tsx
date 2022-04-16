@@ -35,19 +35,15 @@ export const WordRow = ({ length, onComplete, correctWord }: WordRowProps) => {
         if (ref.current) {
             ref.current.scrollIntoView();
         }
-        hotkeys.setScope("test");
-        hotkeys('*', "test", (e: KeyboardEvent) => {
+        hotkeys.setScope("keyboard-scope");
+        hotkeys('*', "keyboard-scope", (e: KeyboardEvent) => {
             handleKeyboardInput(e);
         });
 
         return () => {
-            hotkeys.deleteScope('test');
+            hotkeys.deleteScope('keyboard-scope');
         }
     });
-
-    useEffect(() => {
-        console.log(currentWord);
-    }, [currentWord])
 
     const handleKeyboardInput = (event: KeyboardEvent) => {
         if (event.type !== 'keydown') {
@@ -139,9 +135,9 @@ export const WordRow = ({ length, onComplete, correctWord }: WordRowProps) => {
             }
         }
 
-        // Then check any other chars
-        for(let i = 0;i<currentChar.length;i++) {
-            if (word.includes(currentChar[i])) {
+        // Then check any other chars whose state is still in the invalid state
+        for(let i = 0;i<wordStateArray.length;i++) {
+            if (word.includes(currentChar[i]) && wordStateArray[i].state === 'invalid') {
                 word = word.replace(currentChar[i], '');
                 wordStateArray[i] = {letter: currentChar[i], state: 'correct-character'};
                 continue;

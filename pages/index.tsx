@@ -40,7 +40,7 @@ const Home: NextPage = () => {
     const showEndModal = (result: any, attempts: number) => {
         setWonGame(result);
         setFinalAttempts(attempts);
-        onOpen();
+        setTimeout(() => onOpen(), 200);
     };
 
     return (
