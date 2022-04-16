@@ -10,7 +10,7 @@ export const GameKeyboard = () => {
 
     const onInput = (char: string) => {
         filterReset();
-        setText({...text, char: char});
+        setText({...text, char: char.toLocaleLowerCase()});
     }
 
     return (

@@ -16,7 +16,6 @@ export const WordStack = ({ maxTries, correctWord, onFinishedGame }: WordStackPr
 
     const handleCompleteWord = (correct: boolean, bannedWords: string[]) => {
         if (currentLength < maxTries) {
-            console.log(bannedWords);
             setText({...text, bannedChars: text.bannedChars + " " + bannedWords.map(r => r.toUpperCase()).join(" ")});
             if (correct) {
                 onFinishedGame(true, currentLength);

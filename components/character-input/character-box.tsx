@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import React from 'react';
 import styles from '../../styles/characterbox.module.css';
 import { AnimatePresence, motion } from "framer-motion"
-import { Box } from '@chakra-ui/react';
 import clsx from 'clsx';
 
 export type CharacterInputType = "correct" | "correct-character" | "invalid" | "untouched";

@@ -45,6 +45,10 @@ export const WordRow = ({ length, onComplete, correctWord }: WordRowProps) => {
         }
     });
 
+    useEffect(() => {
+        console.log(currentWord);
+    }, [currentWord])
+
     const handleKeyboardInput = (event: KeyboardEvent) => {
         if (event.type !== 'keydown') {
             return;
@@ -113,7 +117,7 @@ export const WordRow = ({ length, onComplete, correctWord }: WordRowProps) => {
             } else if (currentWord.currentIndex !== length) {
                 setCurrentWord(
                     produce(currentWord, draft => {
-                        draft.word[draft.currentIndex].letter = keyboardInput.input;
+                        draft.word[draft.currentIndex].letter = keyboardInput.input as string;
                         draft.currentIndex += 1;
                     })
                 );
@@ -138,7 +142,7 @@ export const WordRow = ({ length, onComplete, correctWord }: WordRowProps) => {
         // Then check any other chars
         for(let i = 0;i<currentChar.length;i++) {
             if (word.includes(currentChar[i])) {
-                word = word.replace(correctWord[i], '');
+                word = word.replace(currentChar[i], '');
                 wordStateArray[i] = {letter: currentChar[i], state: 'correct-character'};
                 continue;
             }
@@ -150,7 +154,12 @@ export const WordRow = ({ length, onComplete, correctWord }: WordRowProps) => {
             }
         }));
 
-        return Array.from(new Set(wordStateArray.filter(r => r.state === 'invalid').map(r => r.letter)));
+        return Array.from(new Set(wordStateArray.filter(r => {
+            if (r.state === 'invalid' && !wordStateArray.some(a => a.letter === r.letter)) {
+                return true
+            }
+            return false;
+        }).map(r => r.letter)));
     }
 
     return (

@@ -1,5 +1,5 @@
 import { Heading } from '@chakra-ui/react';
-import React from 'react'; // we need this to make JSX compile
+import React from 'react';
 
 type HeaderProps = {
     title: string,
