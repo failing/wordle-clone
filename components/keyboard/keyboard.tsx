@@ -31,11 +31,11 @@ export const GameKeyboard = () => {
                     theme="hg-theme-default dark-keyboard"
                     onKeyPress={onInput}
                     buttonAttributes={
-                        text.bannedChars && text.bannedChars.length > 0 && [
+                        [
                           {
                             attribute: "disabled",
                             value: "true",
-                            buttons: text.bannedChars
+                            buttons: text?.bannedChars ?? ''
                           }
                         ]
                       }

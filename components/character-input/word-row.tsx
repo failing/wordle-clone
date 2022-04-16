@@ -151,7 +151,7 @@ export const WordRow = ({ length, onComplete, correctWord }: WordRowProps) => {
         }));
 
         return Array.from(new Set(wordStateArray.filter(r => {
-            if (r.state === 'invalid' && !wordStateArray.some(a => a.letter === r.letter)) {
+            if (r.state === 'invalid' && !wordStateArray.some(a => a.letter === r.letter && (a.state === 'correct' || a.state === 'correct-character'))) {
                 return true
             }
             return false;
